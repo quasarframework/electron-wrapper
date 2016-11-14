@@ -1,0 +1,6 @@
+.DS_Store
+template/node_modules
+template/npm-debug.log
+template/npm-debug.log.*
+thumbs.db
+!.gitkeep
