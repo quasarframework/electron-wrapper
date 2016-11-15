@@ -9,7 +9,7 @@ let mainWindow
 let config = {}
 
 if (process.env.NODE_ENV === 'development') {
-  config = require('./build/config')
+  config = require('./config')
   config.url = `http://localhost:${config.port}`
 }
 else {

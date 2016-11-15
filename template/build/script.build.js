@@ -10,7 +10,7 @@ var
   shell = require('shelljs'),
   path = require('path'),
   fs = require('fs'),
-  options = require('./config').building,
+  options = require('../config').building,
   targetPath = path.join(__dirname, '../../dist')
 
 if (!fs.existsSync(targetPath)) {
@@ -34,5 +34,5 @@ packager(options, (err, appPaths) => {
 
   console.log(' Build(s) were successful.')
   console.log(appPaths)
-  console.log(' \n\x1b[34mDone!\n\x1b[0m')
+  console.log(' \n\x1b[34mDone! Check "dist" folder.\n\x1b[0m')
 })
