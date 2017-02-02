@@ -5,7 +5,7 @@
   "description": "Quasar App wrapped with Electron",
   "main": "electron.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node_modules/electron/dist/electron electron.js",
+    "dev": "cross-env NODE_ENV=development electron electron.js",
     "clean": "node build/script.clean.js",
     "build": "node build/script.build.js"
   },
