@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     name: config.name,
 
     // Electron version
-    version: require('../node_modules/electron-prebuilt/package.json').version,
+    electronVersion: require('../node_modules/electron/package.json').version,
     arch: 'x64',
     asar: true,
     dir: path.join(__dirname, '../../dist'),
