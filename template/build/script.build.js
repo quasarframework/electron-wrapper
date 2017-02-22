@@ -1,6 +1,5 @@
-'use strict'
-
 process.env.NODE_ENV = 'production'
+
 if (process.argv.length > 2) {
   process.env.PLATFORM_TARGET = process.argv[2]
 }
@@ -12,8 +11,9 @@ var
   shell = require('shelljs'),
   path = require('path'),
   fs = require('fs'),
-  options = require('../config').building,
-  targetPath = path.join(__dirname, '../../dist')
+  config = require('../config/electron'),
+  targetPath = path.join(__dirname, '../../dist'),
+  webpackBuild = require('./webpack.builder.js')
 
 if (!fs.existsSync(targetPath)) {
   console.error('Please build your App before packaging for Electron...'.red)
@@ -21,18 +21,20 @@ if (!fs.existsSync(targetPath)) {
   process.exit(1)
 }
 
-shell.cp(path.join(__dirname, '../electron.js'), targetPath)
-shell.cp(path.join(__dirname, '../package.json'), targetPath)
+webpackBuild(function () {
+  shell.cp(path.join(__dirname, '../dist/electron.js'), targetPath)
+  shell.cp(path.join(__dirname, '../package.json'), targetPath)
 
-console.log(' Building Quasar Electron app(s)...\n'.bold)
-packager(options, (err, appPaths) => {
-  if (err) {
-    console.error('Error from `electron-packager` when building app...'.red)
-    console.error(err)
-    return
-  }
+  console.log(' Building Quasar Electron app(s)...\n'.bold)
+  packager(config, (err, appPaths) => {
+    if (err) {
+      console.error('Error from `electron-packager` when building app...'.red)
+      console.error(err)
+      return
+    }
 
-  console.log(' Build(s) were successful.')
-  console.log(appPaths)
-  console.log('\n Done!'.bold + ' Check ' + path.resolve(__dirname, '../dist').gray + ' folder.')
+    console.log(' Build(s) were successful.')
+    console.log(appPaths)
+    console.log('\n Done!'.bold + ' Check ' + path.resolve(__dirname, '../dist').gray + ' folder.')
+  })
 })
