@@ -19,7 +19,7 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
-  target: 'node',
+  target: 'electron-main',
   externals: config.externals,
   output: {
     filename: 'electron.js',
