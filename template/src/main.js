@@ -3,8 +3,9 @@
 const
   electron = require('electron'),
   path = require('path'),
+  config = require('../config/electron'),
   app = electron.app,
-  BrowserWindow = electron.BrowserWindow
+  BrowserWindow = electron.BrowserWindow,
 
 let mainWindow
 
@@ -13,6 +14,7 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    title: config.name,
     height: 600,
     width: 800
   })

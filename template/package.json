@@ -1,7 +1,8 @@
 {
   "name": "quasar-electron-app",
+  "productName": "Quasar Electron App",
   "version": "0.0.1",
-  "author": "Your name",
+  "author": "Your name <your@email.com>",
   "description": "Quasar App wrapped with Electron",
   "main": "electron.js",
   "scripts": {
