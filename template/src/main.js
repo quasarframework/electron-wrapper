@@ -3,8 +3,9 @@
 const
   electron = require('electron'),
   path = require('path'),
+  config = require('../config/electron'),
   app = electron.app,
-  BrowserWindow = electron.BrowserWindow
+  BrowserWindow = electron.BrowserWindow,
 
 let mainWindow
 
@@ -13,8 +14,10 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    title: config.name,
+    width: 800,
     height: 600,
-    width: 800
+    icon: path.join(__dirname, '../icons/icon.png')
   })
 
   mainWindow.loadURL(

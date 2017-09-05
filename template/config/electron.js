@@ -1,9 +1,12 @@
-const path = require('path')
+const
+  path = require('path'),
+  ELECTRON_APP_INFO = require('../package.json'),
+  APP_INFO = require('../../package.json')
 
 module.exports = {
   // electron-packager options
   // Docs: https://simulatedgreg.gitbooks.io/electron-vue/content/docs/building_your_app.html
-  name: 'QuasarElectronApp',
+  name: ELECTRON_APP_INFO.productName || APP_INFO.productName
 
   // Electron version
   electronVersion: require('../node_modules/electron/package.json').version,

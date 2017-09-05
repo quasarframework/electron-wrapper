@@ -33,6 +33,12 @@ webpackBuild(function () {
       return
     }
 
+    appPaths.forEach((appPath) => {
+      const iconDstPath = path.join(appPath, 'resources')
+      shell.cp('-rf', path.join(__dirname, '../icons/'), iconDstPath)
+      console.log(' Icons copied to ' + iconDstPath)
+    })
+
     console.log(' Build(s) were successful.')
     console.log(appPaths)
     console.log('\n Done!'.bold + ' Check ' + path.resolve(__dirname, '../dist').gray + ' folder.')
