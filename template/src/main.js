@@ -5,7 +5,7 @@ const
   path = require('path'),
   config = require('../config/electron'),
   app = electron.app,
-  BrowserWindow = electron.BrowserWindow,
+  BrowserWindow = electron.BrowserWindow
 
 let mainWindow
 
