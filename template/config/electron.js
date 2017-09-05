@@ -5,7 +5,7 @@ const
 
 module.exports = {
   // electron-packager options
-  // Docs: https://simulatedgreg.gitbooks.io/electron-vue/content/docs/building_your_app.html
+  // Docs: https://simulatedgreg.gitbooks.io/electron-vue/en/using-electron-packager.html
   name: ELECTRON_APP_INFO.productName || APP_INFO.productName,
 
   // Electron version
